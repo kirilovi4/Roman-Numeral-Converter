@@ -1,0 +1,50 @@
+#number{
+    padding: 10px;
+    font-size: 36px;
+    background: 0;
+    border: none;
+    color: #ffffff;
+}
+body{
+    background-image: url(https://images.wallpaperscraft.ru/image/zvezdnoe_nebo_gory_noch_125119_1920x1080.jpg);
+    color: #ffffff;
+}
+#header{
+    font-family: 'Amatic SC', cursive;
+    font-size: 44px;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#form{
+    width: 35%;
+    font-size: 72px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#header > h1{
+    margin: 0;
+}
+#input{
+    width: 75%;
+    font-size: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#result{
+    font-family: 'Muli', sans-serif; 
+    font-size: 32px;
+}
+input{
+    outline: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

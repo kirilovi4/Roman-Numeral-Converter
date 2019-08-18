@@ -1,4 +1,6 @@
-function convertToRoman(num) {
+let numInput = document.getElementById('number');
+let resultArea = document.getElementById('result');
+numInput.oninput = function() {
     let romanNumbers = {
         1: 'I',
         2: 'II',
@@ -31,21 +33,31 @@ function convertToRoman(num) {
         2000: 'MM',
         3000: 'MMM'
     };
-    if (romanNumbers[num] != undefined) {
-        return romanNumbers[num];
-    } else {
-        let number = num;
-        let romanStr = '';
-        let intermediateNum;
-        let len = toString(num).length;
-        for (let i = len - 1; i > 0; i--) {
-            intermediateNum = romanNumbers[number - number % (10 ** i)];
-            if (intermediateNum != undefined) {
-                romanStr += intermediateNum;
+    let num = numInput.value;
+    let regExp = /[^0-9]/;
+    if (regExp.test(num) == false && num && num > 0 && num < 4000) {
+        if (romanNumbers[num] != undefined) {
+            resultArea.innerHTML = romanNumbers[num];
+        } else {
+            let number = num;
+            let romanStr = '';
+            let intermediateNum;
+            let len = toString(num).length;
+            for (let i = len - 1; i > 0; i--) {
+                intermediateNum = romanNumbers[number - number % (10 ** i)];
+                if (intermediateNum != undefined) {
+                    romanStr += intermediateNum;
+                }
+                number = number % (10 ** i);
             }
-            number = number % (10 ** i);
+            romanStr += romanNumbers[number];
+            resultArea.innerHTML = romanStr;
         }
-        romanStr += romanNumbers[number];
-        return romanStr;
+    } else if (!num) {
+        resultArea.innerHTML = '';
+    } else if (num >= 4000){
+        resultArea.innerHTML = 'too big';
+    } else if (num < 1){
+        resultArea.innerHTML = 'too small';
     }
 }
